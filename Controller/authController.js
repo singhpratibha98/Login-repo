@@ -35,17 +35,17 @@ exports.login = async (req, res) => {
   console.log("Password:", password);
 
   try {
-    const user = await EmployeeModel.findOne({ email }); // here it find in DB that user is registered or not 
+    const user = await EmployeeModel.findOne({ email }); // find user from DB
     if (!user) {
-      console.log("user not found"); // check the user is found or not 
+      console.log("user not found"); 
 
       return res.status(404).json({ message: "user not found" });
     }
 
     console.log("hashed password from db:", user.password);
 
-    const isMatch = await bcrypt.compare(password, user.password); //here (user.password)ye DB se aarha and (Password) ye user se aarha hai to indono ka compare karke check krrrhe yha 
-    console.log("Password Match:", isMatch); // here we heck password is match or not we use the cpmare method here 
+    const isMatch = await bcrypt.compare(password, user.password); 
+    console.log("Password Match:", isMatch); 
 
     // if (!isMatch) {
     //   console.log("Invalid password attempt");
