@@ -1,3 +1,5 @@
+const jwt = require("jsonwebtoken");
+
 const { validationResult } = require("express-validator");
 
 exports.handleValidation = (req, res, next) => {
@@ -9,4 +11,3 @@ exports.handleValidation = (req, res, next) => {
   }
   next();
 };
-

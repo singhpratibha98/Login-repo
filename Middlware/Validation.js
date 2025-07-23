@@ -1,4 +1,5 @@
 const { body } = require("express-validator");
+const jwt = require("jsonwebtoken");
 
 exports.validateRegister = [
   body("name").notEmpty().withMessage("Name is required"),
@@ -12,4 +13,3 @@ exports.validateLogin = [
   body("email").isEmail().withMessage("Valid email is required"),
   body("password").notEmpty().withMessage("Password is required"),
 ];
-
