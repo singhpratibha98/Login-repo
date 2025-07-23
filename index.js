@@ -24,7 +24,12 @@ mongoose.connect(process.env.MONGO_URL);
 console.log("connected to mongoDB");
 
 // Routes
-app.use("/", authRoute);
+app.use("/api/auth", authRoute);
+
+// home route
+app.get("/",(req,res)=>{
+  res.send("Api Is Running");
+});
 
 app.listen(PORT, () => {
   console.log(`server is running on ${5000}`);
